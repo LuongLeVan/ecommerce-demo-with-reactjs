@@ -15,7 +15,7 @@ app.use(passport.session());
 
 app.use(
   cors({
-    origin: "https://ecommerce-demo-bice-delta.vercel.app",
+    origin: "https://ecommerce-demo-bice-delta.vercel.app/",
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
   })
@@ -23,6 +23,6 @@ app.use(
 
 app.use("/auth", authRoute);
 
-app.listen("https://ecommerce-demo-bice-delta.vercel.app", () => {
+app.listen("5000", () => {
   console.log("Server is running!");
 });

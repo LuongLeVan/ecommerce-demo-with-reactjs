@@ -13,7 +13,7 @@ const cx = classNames.bind(styles)
 
 const Login = props => {
     const google = () => {
-        window.open("https://ecommerce-demo-bice-delta.vercel.app/auth/google", "_self");
+        window.open("http://localhost:5000/auth/google", "_self");
     };
     
     const github = () => {
