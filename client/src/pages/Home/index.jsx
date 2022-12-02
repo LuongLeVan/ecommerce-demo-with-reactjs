@@ -52,7 +52,7 @@ function Home() {
 
             {/* Product Begin */}
             <Section>
-                <SectionTitle>Top Sản phẩm Bán Chạy Trong Tuần</SectionTitle>
+                <SectionTitle>Top Sản phẩm Bán Chạy Trong Tuần Eddie</SectionTitle>
                 <SectionBody>
                     <Grid col={4} mdCol={2} smCol={1} gap={20}>
                         {productData.getProducts(4).map((item, index) => (
