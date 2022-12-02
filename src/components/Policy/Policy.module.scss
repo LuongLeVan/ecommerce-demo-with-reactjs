@@ -1,0 +1,34 @@
+.policy-cart{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding:20px;
+    padding-left: 0;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    transition: transform 0.5s ease;
+
+    &:hover{
+        transform: translateY(-20px);
+    }
+}
+
+.policy-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    color: #4267b2;
+    height: 100%;
+   i{
+    font-size: 30px;
+
+   }
+}
+.policy-name{
+    font-size: 12.5px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.policy-description{
+    font-size: 10px;
+}

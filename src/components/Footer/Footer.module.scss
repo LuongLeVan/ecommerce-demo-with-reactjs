@@ -1,0 +1,32 @@
+.wrapper{
+    position: relative;
+    margin-top: 24px;
+}
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top:22px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.logo{
+    width: 100px;
+}
+
+.title,.title-customer,.title-brand{
+    font-weight: 700;
+}
+
+a:hover{
+    color: #4267b2;
+}
+
+/* Mobile: width < 740px */
+@media only screen and (max-width: 46.1875em) {
+   .wrapper{
+        text-align: center;
+   }
+
+    
+}  

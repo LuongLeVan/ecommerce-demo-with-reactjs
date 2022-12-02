@@ -1,0 +1,174 @@
+.wrapper{
+    border: 0;
+    outline: 0;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+//Button types
+.description{
+    padding: 8px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover > span {
+        color: #fff;
+        opacity: 0.6;
+    }
+}
+.buy{
+    padding: 8px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4267b2;
+
+    &:hover > span {
+        opacity: 0.6;
+    }
+}
+.descriptionMoblie{
+    padding: 2px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover > span {
+        color: #fff;
+        opacity: 0.6;
+    }
+}
+.descriptionMoblie span {
+    font-size: 12px;
+}
+.primary {
+    background-color: var(--primary);
+    color: var(--white-color);
+
+    &:hover{
+        cursor: pointer;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)),#FE2C55;
+    }
+}
+.outline {
+    color: var(--primary);
+    border-color: currentColor;
+
+    &:hover {
+        border-color: rgba(254, 44, 85, 1);
+    }
+}
+.icon{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+}
+.icon-right{
+    margin-top: 4px;
+    margin-left: 24px;
+}
+//Button sizes
+.small {
+    background-color: #4267b2;
+    min-width: 88px;
+    padding: 4px 16px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover > span{
+        color: #fff;
+        opacity: 0.6;
+    }
+}
+.large {
+    padding: 14px 16px;
+    min-width: 140px;
+}
+.text {
+    cursor: pointer;
+    margin-top: 1px;
+    border: 1px solid rgba(22, 24, 35, 0.12);
+    &:hover{
+        background-color: rgba(22, 24, 35, .03);
+    }
+}
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    user-select: none;
+}
+.rounded{
+    border-radius: 999px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
+    border: 1px solid rgba(22, 24, 35, .12);
+    
+    &:hover {
+        border-color: rgba(22, 24, 35, .2);
+    background-color: rgba(255, 255, 255, 1);
+    }
+}
+.btnIcon{
+    margin-left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    &:hover{
+        background-color: rgba(22, 24, 35, .06);
+    }
+}
+.logo{
+    padding-left: 0;
+    margin-left: 0;
+}
+.title{
+    font-size: 18px;
+    font-weight: 500;
+}
+.buyTablet .title{
+    font-size: 13px;
+    font-weight: 500;
+    padding: 4px;
+}
+.filter .title{
+    font-size: 14px;
+    font-weight: 400;
+    padding: 4px;
+}
+.filter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4267b2;
+
+}
+.cart .title{
+    font-size: 14px;
+    font-weight: 400;
+    padding: 4px;
+}
+.cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4267b2;
+    width: 100%;
+}
+
+.buyTablet{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #4267b2;
+
+}
