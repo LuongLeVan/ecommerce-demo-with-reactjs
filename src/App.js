@@ -24,7 +24,7 @@ function App(){
     
     useEffect(() => {
       const getUser = () => {
-        fetch("http://localhost:5000/auth/login/success", {
+        fetch("https://ecommerce-demo-bice-delta.vercel.app/auth/login/success", {
           method: "GET",
           credentials: "include",
           headers: {
