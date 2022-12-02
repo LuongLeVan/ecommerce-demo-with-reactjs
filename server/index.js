@@ -23,6 +23,6 @@ app.use(
 
 app.use("/auth", authRoute);
 
-app.listen("5000", () => {
+app.listen("https://ecommerce-demo-bice-delta.vercel.app", () => {
   console.log("Server is running!");
 });
