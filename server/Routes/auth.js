@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const passport = require("passport");
 
-const CLIENT_URL = "https://ecommerce-demo-bice-delta.vercel.app/";
+const CLIENT_URL = "https://ecommerce-demo-bice-delta.vercel.app";
 
 router.get("/login/success", (req, res) => {
   if (req.user) {
