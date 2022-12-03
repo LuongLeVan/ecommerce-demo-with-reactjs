@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Route } from "react-router-dom";
 import{Switch} from "react-router-dom"
 
@@ -19,12 +19,12 @@ function App(){
     const [total, setTotal] = useState(0)
     const [isCrease, setIsCrease] = useState(totalQuantity)
     const [number, setNumber] = useState(0)
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState();
 
     
-    useEffect(() => {
+/*     useEffect(() => {
       const getUser = () => {
-        fetch("https://ecommerce-demo-bice-delta.vercel.app/auth/login/success", {
+        fetch("https://localhost:5000/auth/login/success", {
           method: "GET",
           credentials: "include",
           headers: {
@@ -46,7 +46,7 @@ function App(){
         };
         getUser();
       }, []);
-      
+       */
 
 
     return (

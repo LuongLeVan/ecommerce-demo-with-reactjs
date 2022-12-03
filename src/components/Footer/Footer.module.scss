@@ -21,6 +21,29 @@
 a:hover{
     color: #4267b2;
 }
+.container{
+    margin-left: 6px;
+}
+
+.icon-face i,
+.icon-twitter i
+{
+   font-size: 40px;
+   margin: 12px;
+}
+.icon-insta img{
+    width: 32px;
+    height: 32px;
+}
+.cotaniner-icon{
+    text-align:left;
+}
+.icon-face i{
+    color: #0777e9;
+}
+.icon-twitter i {
+    color: #1d9bf0;
+}
 
 /* Mobile: width < 740px */
 @media only screen and (max-width: 46.1875em) {

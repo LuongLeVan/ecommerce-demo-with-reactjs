@@ -4,7 +4,7 @@ import styles from './Footer.module.scss';
 
 import { Link } from 'react-router-dom';
 import logo from '/assets/images/Logo-2.png';
-import Grid from '../Grid';
+import instagram from '/assets/images/instagram.png';
 
 const cx = classNames.bind(styles);
 
@@ -49,59 +49,64 @@ const Footer = () => {
     return (
         <div className={cx('wrapper')}>
             <footer className={cx('footer')}>
-                <Grid
-                    col={4}
-                    mdCol={2}
-                    smCol={1}
-                    gap={10}
-                >
-                        <div className={cx('container')}>
-                    <div className={cx('title')}>Tổng đài hỗ trợ</div>
-                    <div className={cx('content')}>
-                        <p>
-                            Liên hệ đặt hàng <strong>0123456789</strong>
-                        </p>
-                        <p>
-                            Thắc mắc đơn hàng <strong>0123456789</strong>
-                        </p>
-                        <p>
-                            Góp ý, khiếu nại <strong>0123456789</strong>
-                        </p>
-                    </div>
+                <div className="gid wide">
+                    <div className="row">
+                            <div className="l-3 m-6 c-12">
+                                <div className={cx('container')}>
+                                    <div className={cx('title')}>Liên hệ khác</div>
+                                    <div className={cx('content')}>
+                                        <div className={cx('cotaniner-icon')}>
+                                        <span className={cx('icon-face')}><i className='bx bxl-facebook-circle'></i></span>
+                                        <span className={cx('icon-insta')}> <img src={instagram} alt="" /> </span>
+                                        <span className={cx('icon-twitter')}><i className='bx bxl-twitter' ></i></span>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="l-3 m-6 c-12">
+                                <div>
+                                    <div className={cx('title-brand')}>Về Yolo</div>
+                                    <div className={cx('content-brand')}>
+                                        {footerAboutLinks.map((item, index) => (
+                                            <p key={index}>
+                                                <Link to={item.path}>{item.display}</Link>
+                                            </p>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="l-3 m-6 c-12">
+                                <div>
+                                    <div className={cx('title-customer')}>Chăm sóc khách hàng</div>
+                                    <div className={cx('content-customer')}>
+                                        {footerCustomerLinks.map((item, index) => (
+                                            <p key={index}>
+                                                <Link to={item.path}>{item.display}</Link>
+                                            </p>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="l-3 m-6 c-12">
+                                <div className={cx('content-about')}>
+                                    <p>
+                                        <Link to="/">
+                                            <img src={logo} className={cx('logo')} alt="" />
+                                        </Link>
+                                    </p>
+                                    <p className={cx('title-introuduce')}>
+                                        Hướng đến mục tiêu mang lại niềm vui ăn mặc mới mỗi ngày cho hàng triệu người tiêu dùng Việt. Hãy cùng Yolo hướng đến một cuộc sống năng động, tích cực hơn.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                 </div>
-                <div>
-                    <div className={cx('title-brand')}>Về Yolo</div>
-                    <div className={cx('content-brand')}>
-                        {footerAboutLinks.map((item, index) => (
-                            <p key={index}>
-                                <Link to={item.path}>{item.display}</Link>
-                            </p>
-                        ))}
-                    </div>
-                </div>
-                <div>
-                    <div className={cx('title-customer')}>Chăm sóc khách hàng</div>
-                    <div className={cx('content-customer')}>
-                        {footerCustomerLinks.map((item, index) => (
-                            <p key={index}>
-                                <Link to={item.path}>{item.display}</Link>
-                            </p>
-                        ))}
-                    </div>
-                </div>
-                <div className={cx('content-about')}>
-                    <p>
-                        <Link to="/">
-                            <img src={logo} className={cx('logo')} alt="" />
-                        </Link>
-                    </p>
-                    <p className={cx('title-introuduce')}>
-                    Hướng đến mục tiêu mang lại niềm vui ăn mặc mới mỗi ngày cho hàng triệu người tiêu dùng Việt. Hãy cùng Yolo hướng đến một cuộc sống năng động, tích cực hơn.
 
-                    </p>
-                </div>   
-                </Grid>
-             
+
+
+
+
             </footer>
         </div>
     );

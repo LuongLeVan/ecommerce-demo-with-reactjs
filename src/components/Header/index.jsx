@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-
-import Tippy from '@tippyjs/react/headless'; // different import path!
+import Tippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css'; // optional
 
 import logo from '/assets/images/Logo-2.png';
@@ -58,8 +57,6 @@ const tabletNav = [
 const Header = props => {
     const { cart, userInfo } = props
     
-    
-
     const { pathname } = useLocation()
     const activeNav = mainNav.findIndex(e => e.path === pathname)
 
@@ -76,7 +73,7 @@ const Header = props => {
     }, [])
 
     const logout = () => {
-        window.open('http://localhost:5000/auth/logout', '_self')
+        window.open('http://localhost:3000/', '_self')
     }
     return (
         <div className={cx('header')} ref={headerRef}>
@@ -118,10 +115,13 @@ const Header = props => {
                         </Link>
                     </div>
                     <div className={cx('header-right')}>
+                    <Tippy content={'Search'} placement="bottom">
                         <div className={cx('item-right')}>
                             <span className='icon-search'><i className="bx bx-search icon"></i></span>
                         </div>
+                    </Tippy>
                         <div className={cx('item-right')}>
+                            <Tippy content={'Cart'} placement="bottom">
                             <Link to="/cart">
                                 <span className={'icon-bag'}><i className="bx bx-shopping-bag "></i></span>
                                 <div className='circle__quantity'>
@@ -129,12 +129,12 @@ const Header = props => {
                                     <span className='circle__quantity-number'>{Number(cart.length - 1)}</span>
                                 </div>
                             </Link>
+                            </Tippy>
                         </div>
                         <div className={cx('item-right')}>
                             <Tippy
                                 interactive
-                                placement='bottom-end'
-                                zIndex={9999999}
+                                placement='left-end'
                                 render={attrs => (
                                     <div className="box" tabIndex="-1" {...attrs}>
                                         <div className='container__signup'>
@@ -159,7 +159,7 @@ const Header = props => {
                                     </div>
                                 )}
                             >
-                             {userInfo ? <img className='user-avatar' src={userInfo.photos[0].value} alt="" /> : <span className='icon-user'><i className='bx bx-user'></i></span>}
+                             {userInfo ? <img className='user-avatar' src={'https://static.vecteezy.com/system/resources/thumbnails/002/002/332/small_2x/ablack-man-avatar-character-isolated-icon-free-vector.jpg'} alt="" /> : <span className='icon-user'><i className='bx bx-user'></i></span>}
                             </Tippy>
                         </div>
                     </div>
