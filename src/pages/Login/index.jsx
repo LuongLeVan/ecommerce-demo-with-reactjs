@@ -97,7 +97,7 @@ const Login = props => {
                 <div className={cx('wrapper')}>
                     <div className={cx('container__form')}>
                         <div className={cx('wrapper-title')}>
-                            <span className={cx('title__option')}>Đăng nhập để tiếp tục với br <span className={cx('brand_title')}>Yolo-ecommerce</span></span> <br />
+                            <span className={cx('title__option')}>Đăng nhập để tiếp tục với  <span className={cx('brand_title')}>Yolo-ecommerce</span></span> <br />
                         </div>
                         <div className={cx('container__method')}>
 
