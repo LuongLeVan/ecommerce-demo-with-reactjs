@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Tippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css'; // optional
@@ -56,17 +56,17 @@ const tabletNav = [
 
 const Header = props => {
     const { cart, userInfo } = props
-    
     const { pathname } = useLocation()
     const activeNav = mainNav.findIndex(e => e.path === pathname)
+    const img = new Image()
 
-    const headerRef = useRef(null)
     useEffect(() => {
         window.addEventListener("scroll", () => {
+            const header = document.querySelector('.header')
             if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-                headerRef.current.classList.add('shrink')
+                header.classList.add('shrink')
             } else {
-                headerRef.current.classList.remove('shrink')
+                header.classList.remove('shrink')
             }
         })
 
@@ -76,7 +76,7 @@ const Header = props => {
         window.open('http://localhost:3000/', '_self')
     }
     return (
-        <div className={cx('header')} ref={headerRef}>
+        <div className={cx('header')}>
             <div className={cx('container')}>
                 <div className={cx('menu_header')}>
 
@@ -159,7 +159,7 @@ const Header = props => {
                                     </div>
                                 )}
                             >
-                             {userInfo ? <img className='user-avatar' src={'https://static.vecteezy.com/system/resources/thumbnails/002/002/332/small_2x/ablack-man-avatar-character-isolated-icon-free-vector.jpg'} alt="" /> : <span className='icon-user'><i className='bx bx-user'></i></span>}
+                             {userInfo ? <img className='user-avatar' src={userInfo.photos} alt="" /> : <span className='icon-user'><i className='bx bx-user'></i></span>}
                             </Tippy>
                         </div>
                     </div>

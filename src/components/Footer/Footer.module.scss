@@ -34,15 +34,27 @@ a:hover{
 .icon-insta img{
     width: 32px;
     height: 32px;
+    &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
 }
 .cotaniner-icon{
     text-align:left;
 }
 .icon-face i{
     color: #0777e9;
+    &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
 }
 .icon-twitter i {
     color: #1d9bf0;
+    &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
 }
 
 /* Mobile: width < 740px */

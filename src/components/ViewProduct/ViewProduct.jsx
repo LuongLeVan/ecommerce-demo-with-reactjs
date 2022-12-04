@@ -127,7 +127,7 @@ const ViewProduct = props => {
                                     <h3>{product.title}</h3>
                                 </div>
                                 <div className="product__info-price">
-                                    <span>{numberWithCommas(product.price)}</span>
+                                    <span>{numberWithCommas(product.price)}đ</span>
                                 </div>
                                 <p className='info__title-selection'>Màu sắc</p>
                                 <div className="product__info-color">

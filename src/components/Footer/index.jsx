@@ -56,9 +56,9 @@ const Footer = () => {
                                     <div className={cx('title')}>Liên hệ khác</div>
                                     <div className={cx('content')}>
                                         <div className={cx('cotaniner-icon')}>
-                                        <span className={cx('icon-face')}><i className='bx bxl-facebook-circle'></i></span>
-                                        <span className={cx('icon-insta')}> <img src={instagram} alt="" /> </span>
-                                        <span className={cx('icon-twitter')}><i className='bx bxl-twitter' ></i></span>
+                                        <a href='https://www.facebook.com/'target={'_blank'} ><span className={cx('icon-face')}><i className='bx bxl-facebook-circle'></i></span></a>
+                                        <a href="https://www.instagram.com/" target={'_blank'}><span className={cx('icon-insta')}> <img src={instagram} alt="" /> </span></a>
+                                        <a href="https://twitter.com/home" target={'_blank'}><span className={cx('icon-twitter')}><i className='bx bxl-twitter' ></i></span></a>
                                         </div>
                                         
                                     </div>

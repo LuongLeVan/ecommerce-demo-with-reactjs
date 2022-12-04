@@ -23,9 +23,9 @@ const ProductCard = props => {
           {props.name}
         </h3>
         <div className={cx('card-price')}>
-          {numberWithCommas(Number(props.price))}
+          {numberWithCommas(Number(props.price))}đ
           <span className={cx('card-old-price')}>
-            <del>{numberWithCommas(Number(299999))}</del>
+            <del>{numberWithCommas(Number(299999))}đ</del>
           </span>
         </div>
       </Link>
