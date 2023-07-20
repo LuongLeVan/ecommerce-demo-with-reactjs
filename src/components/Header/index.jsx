@@ -55,16 +55,16 @@ const tabletNav = [
 
 
 const Header = props => {
-    const { cart, userInfo } = props
+    const { cart, userInfo, isDarkMode, setIsDarkMode } = props;
     const { pathname } = useLocation()
     const activeNav = mainNav.findIndex(e => e.path === pathname)
-    const img = new Image()
+    const img = new Image();
 
     useEffect(() => {
         window.addEventListener("scroll", () => {
             const header = document.querySelector('.header')
             if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-                header.classList.add('shrink')
+              isDarkMode ?  header.classList.add('shrink') : header.classList.add('shrink dark')
             } else {
                 header.classList.remove('shrink')
             }
@@ -76,7 +76,7 @@ const Header = props => {
         window.open('http://localhost:3000/', '_self')
     }
     return (
-        <div className={cx('header')}>
+        <div  className={isDarkMode ? cx('dark header') : cx('header')}>
             <div className={cx('container')}>
                 <div className={cx('menu_header')}>
 
@@ -120,6 +120,8 @@ const Header = props => {
                             <span className='icon-search'><i className="bx bx-search icon"></i></span>
                         </div>
                     </Tippy>
+
+                    
                         <div className={cx('item-right')}>
                             <Tippy content={'Cart'} placement="bottom">
                             <Link to="/cart">
@@ -131,6 +133,20 @@ const Header = props => {
                             </Link>
                             </Tippy>
                         </div>
+
+                        <Tippy content={'Dark'} placement="bottom">
+                            <div className={cx('item-right')}>
+                                {
+                                    isDarkMode ? (
+                                        <span className='icon-dark'><i className="bx bx-sun icon" onClick={() => setIsDarkMode(!isDarkMode) }></i></span>
+
+                                    ) : (
+                                        <span className='icon-dark'><i className="bx bx-moon icon" onClick={() => setIsDarkMode(!isDarkMode) }></i></span>
+
+                                    )
+                                }
+                            </div>
+                        </Tippy>
                         <div className={cx('item-right')}>
                             <Tippy
                                 interactive
@@ -141,14 +157,14 @@ const Header = props => {
                                             {userInfo ? (
                                                 <div className='signup__options' onClick={logout}>
                                                     <i className='bx bx-log-out icon'></i>
-                                                    <span className='option__title'>Đăng xuất</span>
+                                                    <span className={isDarkMode ? 'option__title text-dark' : 'option__title'}>Đăng xuất</span>
 
                                                 </div>
                                             ) : (
                                                 <Link to={'/login'}>
                                                     <div className='signup__options login'>
                                                         <i className='bx bx-log-in icon'></i>
-                                                        <span className='option__title'>Đăng nhập</span>
+                                                        <span className={isDarkMode ? 'option__title text-dark' : 'option__title'}>Đăng nhập</span>
                                                     </div>
                                                 </Link>
 

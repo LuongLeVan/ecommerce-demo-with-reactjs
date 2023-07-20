@@ -1,17 +1,18 @@
 import React from 'react'
 import { useContext } from 'react'
-import { CartConntext } from 'src/Contexts/CartContext'
+import { CartContext } from 'src/Contexts/CartContext'
 import Footer from 'src/components/Footer'
 import Header from 'src/components/Header'
+import './Categories.scss'
 
 const Categories = () => {
-  const { cart } = useContext(CartConntext)
+  const { cart, isDarkMode, setIsDarkMode } = useContext(CartContext)
 
   return (
-    <div className='wrapper' style={{marginTop :150}}>
-      <Header cart={cart} />
-      <div>Update....</div>
-    <Footer/>
+    <div className={isDarkMode ? 'dark' : ''} style={{marginTop :100}}>
+      <Header cart={cart} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
+      <div className='container'>Update....</div>
+      <Footer/>
     </div>
   )
 }

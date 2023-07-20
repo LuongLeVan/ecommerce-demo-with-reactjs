@@ -4,9 +4,9 @@ import  './HeroSlide.scss'
 import Button from '../Button'
 
 
-const HeroSlider = props => {
+const HeroSlider = (props) => {
 
-    const data = props.data
+    const {data, isDarkMode} = props
 
     const timeOut = props.timeOut ? props.timeOut : 3000
 
@@ -37,10 +37,10 @@ const HeroSlider = props => {
     }, [nextSlide, timeOut, props])
 
     return (
-        <div className="hero-slider">
+        <div className="hero-slider dark">
             {
                 data.map((item, index) => (
-                    <HeroSliderItem key={index} item={item} active={index === activeSlide}/>
+                    <HeroSliderItem isDarkMode={isDarkMode} key={index} item={item} active={index === activeSlide}/>
                 ))
             }
             {
@@ -72,12 +72,14 @@ HeroSlider.propTypes = {
 
 
 const HeroSliderItem = props => (
+   
+
     <div className={`hero-slider-item ${props.active ? 'active' : ''}`}>
         <div className={'hero-info'}>
             <div className={`hero-title color-${props.item.color}`}>
                 <span>{props.item.title}</span>
             </div>
-            <div className={'hero-description'}>
+            <div className={props.isDarkMode ?  'hero-description dark' : 'hero-description'}>
                 <span>{props.item.description}</span>
             </div>
             <div className={`hero-btn`}>

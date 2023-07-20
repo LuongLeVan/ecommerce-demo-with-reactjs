@@ -19,13 +19,13 @@ const ProductCard = props => {
           <img src={props.img01} alt="" />
           <img src={props.img02} alt="" />
         </div>
-        <h3 className={cx('card-name')}>
+        <h3 className={props.isDarkMode ? cx('dark') : cx('card-name') }>
           {props.name}
         </h3>
         <div className={cx('card-price')}>
           {numberWithCommas(Number(props.price))}đ
           <span className={cx('card-old-price')}>
-            <del>{numberWithCommas(Number(299999))}đ</del>
+            <del className={props.isDarkMode ? 'dark' : '' }>{numberWithCommas(Number(299999))}đ</del>
           </span>
         </div>
       </Link>

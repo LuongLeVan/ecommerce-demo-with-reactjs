@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from 'src/components/Header'
-import { CartConntext } from 'src/Contexts/CartContext'
+import { CartContext } from 'src/Contexts/CartContext'
 import { useContext, useState } from 'react'
 import classNames from 'classnames/bind'
 import styles from './Login.module.scss'
@@ -11,7 +11,7 @@ const cx = classNames.bind(styles)
 
 const Login = props => {
 
-    const { cart, user, setUser } = useContext(CartConntext)
+    const { cart, user, setUser, isDarkMode, setIsDarkMode } = useContext(CartContext)
     const [userName, setUserName] = useState(null)
     const [email, setEmail] = useState(null)
     const [userNameLogin, setUserNameLogin] = useState()
@@ -90,8 +90,8 @@ const Login = props => {
     }
 
     return (
-        <div>
-            <Header cart={cart} userInfo={user} />
+        <div className={isDarkMode ? 'dark' : ''}>
+            <Header cart={cart} userInfo={user}  isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
 
             <div className={cx('container')}>
                 <div className={cx('wrapper')}>

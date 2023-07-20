@@ -3,14 +3,14 @@ import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import './Cart.scss'
 import { useState } from 'react'
-import { CartConntext } from 'src/Contexts/CartContext'
+import { CartContext } from 'src/Contexts/CartContext'
 import numberWithCommas from 'src/ultils/numberWithCommas'
 import Button from 'src/components/Button'
 import Header from 'src/components/Header';
 
 
 const Cart = () => {
-  const { cart, setCart, quantity, total, setTotalQuantity, setTotal, number, setNumber, user } = useContext(CartConntext)
+  const { cart, setCart, total, setTotalQuantity, setTotal, setNumber, user, isDarkMode, setIsDarkMode } = useContext(CartContext)
   const userInfo = user
 
   const [totalAfterDel, setTotalAfterDel] = useState(total)
@@ -61,8 +61,8 @@ const Cart = () => {
 
   return (
     <div>
-      <Header cart={cart} userInfo={userInfo}/>
-      <div className={('container__cart')}>
+      <Header cart={cart} userInfo={userInfo} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
+      <div className={isDarkMode ?'container__cart dark': 'container__cart' }>
         <div className='grid wide'>
           <div className='container__product_cart'>
             <div className="row" >

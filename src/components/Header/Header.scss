@@ -8,8 +8,12 @@
     height: 100px;
     margin-bottom: 100px;
     z-index: 999;
-    margin-top: 50px;
+   /*  margin-top: 50px; */
     
+}
+.dark{
+    background-color: #404040;
+    color: white;
 }
 .shrink{
     height: $header-shrink-height;
@@ -20,9 +24,24 @@
     margin-bottom: 0px;
 
 }
+.shrink.dark{
+    height: $header-shrink-height;
+    box-shadow: $box-shadow;
+    background-color: #404040;
+    z-index: 999999;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
 .container{
     height: 100%;
   
+}
+.text-dark{
+    color: #404040;
+    &:hover{
+        color: $main-color;
+        cursor: pointer;
+    }
 }
 
 .logo{
@@ -85,14 +104,15 @@
     border: 1px solid transparent;
 }
 .circle__quantity-number{
-    border-radius: 50%;
+    border-radius: 60%;
     background-color: #4267b2;
     color: #fff;
     font-size: 14px;
-    padding: 5px;
+    padding: 8px;
     display: block;
-    width: 14px;
-    height: 14px;
+    width: 21px;
+    height: 21px;
+    padding-bottom: 20px;
     text-align: center;
 }
 
@@ -107,6 +127,11 @@
         font-size: 18px;
         margin: 0 8px;
     }
+    
+}
+.icon-dark:hover{
+    color: $main-color;
+    cursor: pointer;
     
 }
 
@@ -242,6 +267,7 @@
     border-radius: 50%;
 }
 .icon-search,
+.icon-dark,
 .icon-bag,
 .icon-user{
     font-size: 28px;

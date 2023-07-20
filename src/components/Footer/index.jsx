@@ -49,7 +49,7 @@ const Footer = () => {
     return (
         <div className={cx('wrapper')}>
             <footer className={cx('footer')}>
-                <div className="gid wide">
+                <div className="grid wide">
                     <div className="row">
                             <div className="l-3 m-6 c-12">
                                 <div className={cx('container')}>

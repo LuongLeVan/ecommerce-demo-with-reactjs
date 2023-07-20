@@ -8,34 +8,34 @@ import './ViewProduct.scss'
 import Button from '../Button'
 import numberWithCommas from 'src/ultils/numberWithCommas'
 import Section, { SectionTitle } from 'src/components/Section'
-import { CartConntext } from 'src/Contexts/CartContext'
+import { CartContext } from 'src/Contexts/CartContext'
 import Header from '../Header'
 
 const ViewProduct = props => {
 
-    const { user } = useContext(CartConntext)
+    const { user, isDarkMode, setIsDarkMode } = useContext(CartContext);
 
-    const userInfo = user
-
-
-
-    const { setCart, cart, setTotal, setNumber, number, isDelete } = useContext(CartConntext)
-
-    const product = props.product
+    const userInfo = user;
 
 
-    const [previewImg, setPreviewImg] = useState(product.image01)
 
-    const [color, setColor] = useState(undefined)
+    const { setCart, cart, setTotal, setNumber, number, isDelete } = useContext(CartContext);
 
-    const [size, setSize] = useState(undefined)
+    const product = props.product;
 
 
-    const [showDescription, setShowDescription] = useState(false)
+    const [previewImg, setPreviewImg] = useState(product.image01);
 
-    const [quantity, setQuantity] = useState(1)
+    const [color, setColor] = useState(undefined);
 
-    const [isAdded, setIsAdded] = useState(false)
+    const [size, setSize] = useState(undefined);
+
+
+    const [showDescription, setShowDescription] = useState(false);
+
+    const [quantity, setQuantity] = useState(1);
+
+    const [isAdded, setIsAdded] = useState(false);
 
 
     useEffect(() => {
@@ -102,91 +102,93 @@ const ViewProduct = props => {
 
     return (
         <div>
-            <Header cart={cart} isDelete={isDelete} userInfo={userInfo}/>
-            <div className='product'>
-                <div className='grid wide'>
-                    <div className='row'>
-                        <div className="l-2 m-2 c-3">
-                            <div className='image__list'>
-                                <div className='image__list-item' onClick={() => setPreviewImg(product.image01)}>
-                                    <img src={product.image01} alt="" />
+            <Header cart={cart} isDelete={isDelete} userInfo={userInfo} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+            <div style={{marginTop: '100px'}}>
+                <div className={isDarkMode ? 'product dark' : 'product'} >
+                    <div className='grid wide'>
+                        <div className='row'>
+                            <div className="l-2 m-2 c-3">
+                                <div className='image__list'>
+                                    <div className='image__list-item' onClick={() => setPreviewImg(product.image01)}>
+                                        <img src={product.image01} alt="" />
+                                    </div>
+                                    <div className='image__list-item' onClick={() => setPreviewImg(product.image02)}>
+                                        <img src={product.image02} alt="" />
+                                    </div>
                                 </div>
-                                <div className='image__list-item' onClick={() => setPreviewImg(product.image02)}>
-                                    <img src={product.image02} alt="" />
+                            </div>
+                            <div className="l-5 m-6 c-9">
+                                <div className='image__preivew'>
+                                    <img src={previewImg} alt="" />
+                                </div>
+                            </div>
+                            <div className="l-5 m-4 c-12">
+                                <div className="product__info">
+                                    <div className="product__info-title">
+                                        <h3>{product.title}</h3>
+                                    </div>
+                                    <div className="product__info-price">
+                                        <span>{numberWithCommas(product.price)}đ</span>
+                                    </div>
+                                    <p className='info__title-selection'>Màu sắc</p>
+                                    <div className="product__info-color">
+                                        {product.colors.map((item, index) => (
+                                            <div className={`info__color-item ${color === item ? 'active' : ''}`} onClick={() => setColor(item)} key={index}>
+                                                <div key={index} className={`circle bg-${item}`}></div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <p className='info__title-selection'>Kích cỡ</p>
+                                    <div className="product__info-size">
+                                        {product.size.map((item, index) => (
+                                            <div className={`info__size-item ${size === item ? 'active' : ''}`} onClick={() => setSize(item)} key={index}>
+                                                <span key={index}>{item}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                                <p className='info__title-selection'>Số lượng</p>
+                                <div className="quantity__input">
+                                    <span className='quantity__input-btn'>
+                                        <i className='bx bx-minus' onClick={() => setQuantity(quantity - 1)}></i>
+                                    </span>
+                                    <input type="text" disabled value={(quantity < 1 ? 1 : quantity)} />
+                                    <span className='quantity__input-btn'>
+                                        <i className='bx bx-plus' onClick={() => setQuantity(quantity + 1)}></i>
+                                    </span>
+                                </div>
+                                <div className='product__buy-btn'>
+                                    <span className='btn__buy-pc' onClick={handleLogin}>
+                                        <Button filter onClick={() => addtoCart()}>thêm vào giỏ</Button>
+                                    </span>
+                                        <span className='btn__buy-tablet' onClick={handleLogin}><Button buyTablet onClick={() => addtoCart()}>thêm vào giỏ</Button></span>
+                                    <span className='btn__buy-pc' onClick={handleLogin}><Button filter onClick={() => gotoCart()}>mua ngay</Button></span>
+                                        <span className='btn__buy-tablet' onClick={handleLogin}><Button buyTablet onClick={() => gotoCart()}>mua ngay</Button></span>
                                 </div>
                             </div>
                         </div>
-                        <div className="l-5 m-6 c-9">
-                            <div className='image__preivew'>
-                                <img src={previewImg} alt="" />
+                        <div className="row">
+                            <div className="l-8 c-12">
+                                <div className="product__description">
+                                    <div className="product__description-title">
+                                        Chi tiết sản phẩm
+                                    </div>
+                                    <Section>
+                                        <SectionTitle>
+                                            <div className={`product__description-content ${showDescription ? 'activeShow' : ''}`} dangerouslySetInnerHTML={{
+                                                __html:
+                                                    product.description
+                                            }}>
+                                            </div>
+                                        </SectionTitle>
+                                    </Section>
+                                    <div className="btn-showDescription">
+                                        <Button filter onClick={() => setShowDescription(!showDescription)}>{showDescription ? 'Ẩn bớt' : 'Đọc thêm'}</Button>
+                                    </div>
+                                </div>
                             </div>
+                            <div className="l-4 c-0"></div>
                         </div>
-                        <div className="l-5 m-4 c-12">
-                            <div className="product__info">
-                                <div className="product__info-title">
-                                    <h3>{product.title}</h3>
-                                </div>
-                                <div className="product__info-price">
-                                    <span>{numberWithCommas(product.price)}đ</span>
-                                </div>
-                                <p className='info__title-selection'>Màu sắc</p>
-                                <div className="product__info-color">
-                                    {product.colors.map((item, index) => (
-                                        <div className={`info__color-item ${color === item ? 'active' : ''}`} onClick={() => setColor(item)} key={index}>
-                                            <div key={index} className={`circle bg-${item}`}></div>
-                                        </div>
-                                    ))}
-                                </div>
-                                <p className='info__title-selection'>Kích cỡ</p>
-                                <div className="product__info-size">
-                                    {product.size.map((item, index) => (
-                                        <div className={`info__size-item ${size === item ? 'active' : ''}`} onClick={() => setSize(item)} key={index}>
-                                            <span key={index}>{item}</span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                            <p className='info__title-selection'>Số lượng</p>
-                            <div className="quantity__input">
-                                <span className='quantity__input-btn'>
-                                    <i className='bx bx-minus' onClick={() => setQuantity(quantity - 1)}></i>
-                                </span>
-                                <input type="text" disabled value={(quantity < 1 ? 1 : quantity)} />
-                                <span className='quantity__input-btn'>
-                                    <i className='bx bx-plus' onClick={() => setQuantity(quantity + 1)}></i>
-                                </span>
-                            </div>
-                            <div className='product__buy-btn'>
-                                <span className='btn__buy-pc' onClick={handleLogin}>
-                                    <Button filter onClick={() => addtoCart()}>thêm vào giỏ</Button>
-                                </span>
-                                    <span className='btn__buy-tablet' onClick={handleLogin}><Button buyTablet onClick={() => addtoCart()}>thêm vào giỏ</Button></span>
-                                <span className='btn__buy-pc' onClick={handleLogin}><Button filter onClick={() => gotoCart()}>mua ngay</Button></span>
-                                    <span className='btn__buy-tablet' onClick={handleLogin}><Button buyTablet onClick={() => gotoCart()}>mua ngay</Button></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="l-8 c-12">
-                            <div className="product__description">
-                                <div className="product__description-title">
-                                    Chi tiết sản phẩm
-                                </div>
-                                <Section>
-                                    <SectionTitle>
-                                        <div className={`product__description-content ${showDescription ? 'activeShow' : ''}`} dangerouslySetInnerHTML={{
-                                            __html:
-                                                product.description
-                                        }}>
-                                        </div>
-                                    </SectionTitle>
-                                </Section>
-                                <div className="btn-showDescription">
-                                    <Button filter onClick={() => setShowDescription(!showDescription)}>{showDescription ? 'Ẩn bớt' : 'Đọc thêm'}</Button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="l-4 c-0"></div>
                     </div>
                 </div>
             </div>

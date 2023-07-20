@@ -1,9 +1,12 @@
 .catalog{
-    margin-top: 150px;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     padding: 0 168px;
+}
+.dark{
+    background-color: #404040;
+    color: white;
 }
 .catalog__title,
 .catalog__title__tablet{
