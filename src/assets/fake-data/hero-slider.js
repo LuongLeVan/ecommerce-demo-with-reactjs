@@ -5,7 +5,7 @@ const img3 = require("../images/slider/slide_3.png")
 const heroSliderData = [
     {
         title: "Polo nữ Pima Lascope",
-        description: "Nhắc đến sự đẳng cấp là không thể không nhắc đến dòng vải pima. Nó tạo nên chất lượng tốt nhất cho bất kỳ sản phẩm thời trang. Sợi vải pima dài và dày dặn.",
+        description: "Nhắc đến sự đẳng cấp là không thể không nhắc đến dòng vải pima. Nó tạo nên chất lượng tốt cho bất kỳ sản phẩm thời trang. Sợi vải pima dày dặn.",
         img: img1,
         color: "blue",
         path: "/catalog/ao-thun-dinosaur-01"
