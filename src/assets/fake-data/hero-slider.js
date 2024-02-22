@@ -5,14 +5,14 @@ const img3 = require("../images/slider/slide_3.png")
 const heroSliderData = [
     {
         title: "Polo nữ Pima Lascope",
-        description: "Nhắc đến sự đẳng cấp là không thể không nhắc đến dòng vải pima. Nó tạo nên chất lượng tốt nhất cho bất kỳ sản phẩm thời trang nào. Sợi vải pima dài và dày hơn sợi cotton thông thường.",
+        description: "Nhắc đến sự đẳng cấp là không thể không nhắc đến dòng vải pima. Nó tạo nên chất lượng tốt nhất cho bất kỳ sản phẩm thời trang. Sợi vải pima dài và dày dặn.",
         img: img1,
         color: "blue",
         path: "/catalog/ao-thun-dinosaur-01"
     },
     {
         title: "Polo Nữ Dáng Suông Modal",
-        description: "Polo nữ dáng suông Modal sử dụng công nghệ vải cao cấp thân thiện với môi trường sản xuất độc quyền chống co rút vải, áo polo nữ vải modal là sản phẩm thích hợp cho các bạn.",
+        description: "Polo nữ dáng suông Modal sử dụng công nghệ vải cao cấp thân thiện với môi trường sản xuất độc quyền chống co rút vải, áo polo nữ vải modal.",
         img: img2,
         path: "/catalog/ao-thun-dinosaur-02",
         color: "pink"
