@@ -19,17 +19,18 @@ import { useContext } from 'react';
 import { CartContext } from 'src/Contexts/CartContext';
 const cx = classNames.bind(style);
 
-
 function Home() {
-    const {cart, user, isDarkMode, setIsDarkMode} = useContext(CartContext);
+    const { cart, user, isDarkMode, setIsDarkMode } = useContext(CartContext);
     const userInfo = user;
     return (
         <div className={isDarkMode ? 'dark' : ''}>
             <Helmet title="Trang chủ" className={cx('container')}>
-                  <Header cart = {cart} userInfo={userInfo} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
-                <div className={cx('container-home') }>
+                <Header cart={cart} userInfo={userInfo} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+                <div className={cx('container-home')} style={{ zIndex: 100 }}>
+                    {' '}
+                    {/* Tăng giá trị z-index */}
                     {/* Slide begin */}
-                    <HeroSlide data={heroSliderData} control={true} auto={true} isDarkMode={isDarkMode}/>
+                    <HeroSlide data={heroSliderData} control={true} auto={true} isDarkMode={isDarkMode} />
                     {/* Slide end */}
                 </div>
                 {/* Section begin */}
@@ -83,7 +84,6 @@ function Home() {
                                     price={Number(item.price)}
                                     slug={item.slug}
                                     isDarkMode={isDarkMode}
-
                                 />
                             ))}
                         </Grid>
@@ -112,7 +112,6 @@ function Home() {
                                     price={Number(item.price)}
                                     slug={item.slug}
                                     isDarkMode={isDarkMode}
-
                                 />
                             ))}
                         </Grid>

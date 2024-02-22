@@ -1,14 +1,9 @@
 @import "/src/components/GlobalStyles/GlobalStyles.scss"; 
 @import "/src/components/GlobalStyles/_variables.scss"; 
 .header{
-    position: fixed;
-    top: 0;
-    right: 0;
     width: 100%;
     height: 100px;
-    margin-bottom: 100px;
-    z-index: 999;
-   /*  margin-top: 50px; */
+    background-color: white; /* Thêm màu nền tùy chọn */
     
 }
 .dark{
@@ -19,7 +14,6 @@
     height: $header-shrink-height;
     box-shadow: $box-shadow;
     background-color: rgb(255, 255, 255);
-    z-index: 999999;
     margin-top: 0px;
     margin-bottom: 0px;
 
@@ -53,7 +47,7 @@
 .menu_header{
     display: flex;
     justify-content: space-around;
-    margin-top: 20px;
+    padding-top: 10px;
 }
 
 .header-left{
@@ -81,6 +75,7 @@
     opacity: 0;
     transform: translateX(-100%);
     transition: all linear 0.2s;
+    z-index: 999;
 }
 
 .btn-close{
@@ -210,6 +205,12 @@
     .logo{
         position: unset;
        margin-left: 70px;
+    }
+    .header-right{
+        margin-right: -15px;
+    }
+    .icon-search{
+        display: none;
     }
 
     

@@ -26,7 +26,7 @@ const Product = props => {
     }, [product])
     return (
 
-        <div className={isDarkMode ? 'dark' : ''}>
+        <div className={isDarkMode ? 'dark' : 'wrapper'}>
             <Helmet title={product.title}>
                 <div>
                     <Section>

@@ -9,8 +9,6 @@ import style from './Header.scss';
 
 const cx = classNames.bind(style);
 
-
-
 const mainNav = [
     {
         display: 'Trang chủ',
@@ -38,58 +36,53 @@ const tabletNav = [
     {
         display: 'Sản phẩm',
         path: '/catalog',
-
     },
     {
-
         display: 'Phụ kiện',
         path: '/accessories',
-
     },
     {
         display: 'Liên hệ',
         path: '/contact',
-
     },
 ];
 
-
-const Header = props => {
+const Header = (props) => {
     const { cart, userInfo, isDarkMode, setIsDarkMode } = props;
-    const { pathname } = useLocation()
-    const activeNav = mainNav.findIndex(e => e.path === pathname)
+    const { pathname } = useLocation();
+    const activeNav = mainNav.findIndex((e) => e.path === pathname);
     const img = new Image();
 
     useEffect(() => {
-        window.addEventListener("scroll", () => {
-            const header = document.querySelector('.header')
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
             if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-              isDarkMode ?  header.classList.add('shrink') : header.classList.add('shrink dark')
+                isDarkMode ? header.classList.add('shrink') : header.classList.add('shrink dark');
             } else {
-                header.classList.remove('shrink')
+                header.classList.remove('shrink');
             }
-        })
-
-    }, [])
+        });
+    }, []);
 
     const logout = () => {
-        window.open('http://localhost:3000/', '_self')
-    }
+        window.open('http://localhost:3000/', '_self');
+    };
     return (
-        <div  className={isDarkMode ? cx('dark header') : cx('header')}>
+        <div className={isDarkMode ? cx('dark header') : cx('header')}>
             <div className={cx('container')}>
                 <div className={cx('menu_header')}>
-
                     <input hidden type="checkbox" id="checkbox-btn" />
                     <label htmlFor="checkbox-btn" className={cx('mobile-toggle')}>
                         <i className="bx bx-menu-alt-left"></i>
                     </label>
-                    <label htmlFor="checkbox-btn" className='overlay'></label>
+                    <label htmlFor="checkbox-btn" className="overlay"></label>
 
                     {/* Tablet menu */}
                     <div className={cx('menu-tablet')}>
                         <label htmlFor="checkbox-btn" className={cx('btn-close')}>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z" />
+                            </svg>
                         </label>
                         {tabletNav.map((item, index) => (
                             <div key={index} className={cx('menu__tablet-list')}>
@@ -115,67 +108,83 @@ const Header = props => {
                         </Link>
                     </div>
                     <div className={cx('header-right')}>
-                    <Tippy content={'Search'} placement="bottom">
-                        <div className={cx('item-right')}>
-                            <span className='icon-search'><i className="bx bx-search icon"></i></span>
-                        </div>
-                    </Tippy>
+                        <Tippy content={'Search'} placement="bottom">
+                            <div className={cx('item-right')}>
+                                <span className="icon-search">
+                                    <i className="bx bx-search icon"></i>
+                                </span>
+                            </div>
+                        </Tippy>
 
-                    
                         <div className={cx('item-right')}>
                             <Tippy content={'Cart'} placement="bottom">
-                            <Link to="/cart">
-                                <span className={'icon-bag'}><i className="bx bx-shopping-bag "></i></span>
-                                <div className='circle__quantity'>
-
-                                    <span className='circle__quantity-number'>{Number(cart.length - 1)}</span>
-                                </div>
-                            </Link>
+                                <Link to="/cart">
+                                    <span className={'icon-bag'}>
+                                        <i className="bx bx-shopping-bag "></i>
+                                    </span>
+                                    <div className="circle__quantity">
+                                        <span className="circle__quantity-number">{Number(cart.length - 1)}</span>
+                                    </div>
+                                </Link>
                             </Tippy>
                         </div>
 
                         <Tippy content={'Dark'} placement="bottom">
                             <div className={cx('item-right')}>
-                                {
-                                    isDarkMode ? (
-                                        <span className='icon-dark'><i className="bx bx-sun icon" onClick={() => setIsDarkMode(!isDarkMode) }></i></span>
-
-                                    ) : (
-                                        <span className='icon-dark'><i className="bx bx-moon icon" onClick={() => setIsDarkMode(!isDarkMode) }></i></span>
-
-                                    )
-                                }
+                                {isDarkMode ? (
+                                    <span className="icon-dark">
+                                        <i className="bx bx-sun icon" onClick={() => setIsDarkMode(!isDarkMode)}></i>
+                                    </span>
+                                ) : (
+                                    <span className="icon-dark">
+                                        <i className="bx bx-moon icon" onClick={() => setIsDarkMode(!isDarkMode)}></i>
+                                    </span>
+                                )}
                             </div>
                         </Tippy>
                         <div className={cx('item-right')}>
                             <Tippy
                                 interactive
-                                placement='left-end'
-                                render={attrs => (
+                                placement="left-end"
+                                render={(attrs) => (
                                     <div className="box" tabIndex="-1" {...attrs}>
-                                        <div className='container__signup'>
+                                        <div className="container__signup">
                                             {userInfo ? (
-                                                <div className='signup__options' onClick={logout}>
-                                                    <i className='bx bx-log-out icon'></i>
-                                                    <span className={isDarkMode ? 'option__title text-dark' : 'option__title'}>Đăng xuất</span>
-
+                                                <div className="signup__options" onClick={logout}>
+                                                    <i className="bx bx-log-out icon"></i>
+                                                    <span
+                                                        className={
+                                                            isDarkMode ? 'option__title text-dark' : 'option__title'
+                                                        }
+                                                    >
+                                                        Đăng xuất
+                                                    </span>
                                                 </div>
                                             ) : (
                                                 <Link to={'/login'}>
-                                                    <div className='signup__options login'>
-                                                        <i className='bx bx-log-in icon'></i>
-                                                        <span className={isDarkMode ? 'option__title text-dark' : 'option__title'}>Đăng nhập</span>
+                                                    <div className="signup__options login">
+                                                        <i className="bx bx-log-in icon"></i>
+                                                        <span
+                                                            className={
+                                                                isDarkMode ? 'option__title text-dark' : 'option__title'
+                                                            }
+                                                        >
+                                                            Đăng nhập
+                                                        </span>
                                                     </div>
                                                 </Link>
-
                                             )}
-
-
                                         </div>
                                     </div>
                                 )}
                             >
-                             {userInfo ? <img className='user-avatar' src={userInfo.photos} alt="" /> : <span className='icon-user'><i className='bx bx-user'></i></span>}
+                                {userInfo ? (
+                                    <img className="user-avatar" src={userInfo.photos} alt="" />
+                                ) : (
+                                    <span className="icon-user">
+                                        <i className="bx bx-user"></i>
+                                    </span>
+                                )}
                             </Tippy>
                         </div>
                     </div>
