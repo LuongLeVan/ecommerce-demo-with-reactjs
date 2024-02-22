@@ -243,6 +243,9 @@ $colors: (
 
 /* Mobile: width < 740px */
 @media only screen and (max-width: 46.1875em) {
+    .hero-btn{
+        display: none;
+    }
     .hero-slider-item{
         display: flex;
         flex-direction: column-reverse;
