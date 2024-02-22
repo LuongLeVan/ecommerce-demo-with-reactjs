@@ -56,7 +56,7 @@
 }
 .hero-description{
     color: #333;
-    line-height: 1.4rem;
+    line-height: 1.2rem;
     overflow: hidden;
     width: 65%;
 }
@@ -243,9 +243,7 @@ $colors: (
 
 /* Mobile: width < 740px */
 @media only screen and (max-width: 46.1875em) {
-    .hero-btn{
-        display: none;
-    }
+    
     .hero-slider-item{
         display: flex;
         flex-direction: column-reverse;
