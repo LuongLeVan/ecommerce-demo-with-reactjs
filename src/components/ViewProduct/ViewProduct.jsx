@@ -122,7 +122,7 @@ const ViewProduct = props => {
                                     <img src={previewImg} alt="" />
                                 </div>
                             </div>
-                            <div className="l-5 m-4 c-12">
+                            <div className="l-5 m-4 c-12 info-mobile">
                                 <div className="product__info">
                                     <div className="product__info-title">
                                         <h3>{product.title}</h3>
